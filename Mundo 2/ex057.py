@@ -7,13 +7,6 @@ def limpar_tela():
 def limpar_linha():
     print("\033[F\033[K", end="")
 
-def limpar_tela():
-    run(["cls"], shell=True)
-
-def mostra_cabecalho(msg):
-    linha = "=" * len(msg)
-    print(f"{linha}\n{msg}\n{linha}\n")
-
 def mostra_cabecalho(msg):
     linha = "=" * len(msg)
     print(f"{linha}\n{msg}\n{linha}\n")
