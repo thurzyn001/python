@@ -1,5 +1,6 @@
 from subprocess import run
 from random import randint
+from time import sleep
 
 def limpar_tela():
     run(["cls"], shell=True)
@@ -17,7 +18,7 @@ def Escolha_Pc():
 def Escolha_Jogador():
     while True:
         try:
-            escolha = int(input("Escolha um número entre 0 e 10: "))
+            escolha = int(input("Qual é o seu palpite? "))
             if 0 <= escolha <= 10:
                 return escolha
             else:
@@ -29,20 +30,25 @@ def jogo(escolha_pc, escolha_jogador):
     cont = 1
     while escolha_pc != escolha_jogador:
         limpar_linha()
-        print(f"{cont}ª tentativa: {escolha_jogador}")
+        print(f"{cont}ª tentativa: {escolha_jogador}\n")
         cont += 1
         if escolha_jogador < escolha_pc:
-            print("\nMaior... Tente novamente.\n")
+            print("Maior... Tente novamente.")
+            sleep(1)
+            limpar_linha()
         else:
-            print("\nMenor... Tente novamente.\n")
+            print("Menor... Tente novamente.")
+            sleep(1)
+            limpar_linha()
         escolha_jogador = Escolha_Jogador()
     limpar_tela()
     mostra_cabecalho("   Adivinhação v.2.0.   ")
-    print(f"Parabéns! Você acertou o número {escolha_pc} em {cont} tentativas.")
+    print(f"Parabéns! Você acertou o número {escolha_pc} em {cont} {'tentativa' if cont == 1 else 'tentativas'}.")
 
 def main():
     limpar_tela()
     mostra_cabecalho("   Adivinhação v.2.0.   ")
+    print("Olá! Sou seu computador e escolhi um número entre 0 e 10. Tente adivinhar qual é!\n")
     pc = Escolha_Pc()
     jogador = Escolha_Jogador()
     jogo(pc, jogador)
