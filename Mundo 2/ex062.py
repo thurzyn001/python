@@ -76,18 +76,16 @@ def menu_alterar_parametro(inicio, quantidade, razao):
         print("[4] Voltar\n")
 
         opcao = input("O que deseja fazer? ").strip()
+        print()
 
         if opcao == "1":
-            inicio = pedir_inteiro("\nNovo termo inicial: ")
+            inicio = pedir_inteiro("Novo termo inicial: ")
 
         elif opcao == "2":
-            quantidade = pedir_inteiro(
-                "\nNova quantidade de termos: ",
-                1
-            )
+            quantidade = pedir_inteiro("Nova quantidade de termos: ", 1)
 
         elif opcao == "3":
-            razao = pedir_inteiro("\nNova razão: ")
+            razao = pedir_inteiro("Nova razão: ")
 
         elif opcao == "4":
             return inicio, quantidade, razao
